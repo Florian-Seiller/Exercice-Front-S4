@@ -52,8 +52,3 @@ function bouge() {
     y += posiY;
     lehmann.style.transform = `translate(${x}px, ${y}px)`;
 }
-
-
-
-
-/* Suivi curseur */
