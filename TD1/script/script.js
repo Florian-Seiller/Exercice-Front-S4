@@ -1,55 +1,54 @@
+window.addEventListener('keydown', touche);
+window.addEventListener('keyup', stop);
+let lehmann = document.querySelector(".lehmann")
+let posiX = 0;
+let posiY = 0;
 let x = 0;
 let y = 0;
 
 
 
 
+let interval1 = setInterval(bouge, 16);
+function touche(event) {
+    switch (event.key) {
+        case 'ArrowUp':
+            posiY = -10;
+            break;
+        case 'ArrowDown':
+            posiY = 10;
+            break;
+        case 'ArrowRight':
+            posiX = 10;
+            break;
+        case 'ArrowLeft':
+            posiX = -10;
+            break;
+    }
+}
 
-switch (event.key) {
-    case 'ArrowUp':
-        y;
-        break;
-    case 'ArrowDown':
-        y;
-        break;
-    case 'ArrowRight':
-        x;
-        break;
-    case 'ArrowLeft':
-        x;
-        break;
-    case 'ArrowLeft' && 'ArrowRight':
-       clearInterval(); // stop
-        break;
-    case 'ArrowLeft' && 'ArrowDown':
-        clearInterval(); // stop
-        break;
-    case 'ArrowLeft' && 'ArrowUp':
-        clearInterval(); // stop
-        break;
-    case 'ArrowRight' && 'ArrowLeft':
-        clearInterval(); // stop
-        break;
-    case 'ArrowRight' && 'ArrowUp':
-        clearInterval(); // stop
-        break;
-    case 'ArrowUp' && 'ArrowDown':
-        clearInterval(); // stop
-        break;
-    case 'ArrowRight' && 'ArrowLeft':
-        clearInterval(); // stop
-        break;
-    case 'ArrowUp' && 'ArrowLeft':
-        clearInterval(); // stop
-        break;
-    case 'ArrowUp' && 'ArrowRight':
-        clearInterval(); // stop
-        break;
-    case 'ArrowDown' && 'ArrowLeft':
-        clearInterval(); // stop
-        break;
-    case 'ArrowDown' && 'ArrowRight':
-        clearInterval(); // stop
-        break;
+function stop(event) {
+    switch (event.key) {
+        case 'ArrowUp':
+            posiY = 0;
+            break;
+        case 'ArrowDown':
+            posiY = 0;
+            break;
+        case 'ArrowRight':
+            posiX = 0;
+            break;
+        case 'ArrowLeft':
+            posiX = 0;
+            break;
+    }
+}
+// function stop() {
+//     clearInterval(interval1); Buggez si plusieur touche appuyées
+// }
 
+function bouge() {
+    x += posiX;
+    y += posiY;
+    lehmann.style.transform = `translate(${x}px, ${y}px)`;
 }
